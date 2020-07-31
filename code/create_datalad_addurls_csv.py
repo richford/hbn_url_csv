@@ -152,6 +152,8 @@ def create_add_urls_csv(s3_uri, csv_path, anon, dataset_name, overwrite):
 
     CSV_PATH is the path to the csv to be written
     """
+    #ensure that s3_uri ends in a trailing slash
+    s3_uri = s3_uri.rstrip("/") + "/"
     matching_keys = get_matching_s3_keys(s3_uri=s3_uri, anon=anon, add_version=True)
 
     parsed = _parse_s3_uri(s3_uri)
@@ -168,7 +170,7 @@ def create_add_urls_csv(s3_uri, csv_path, anon, dataset_name, overwrite):
 
         for s3_url, version in matching_keys:
             original_url = s3_url
-            filename = s3_url.split(split_key + "/")[-1].replace("/", "//")
+            filename = s3_url.split(split_key.rstrip("/") + "/")[-1].replace("/", "//")
             csv_writer.writerow([original_url, dataset_name, filename, version])
 
 
