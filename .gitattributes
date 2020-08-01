@@ -1,4 +1,4 @@
 
 * annex.backend=MD5E
 **/.git* annex.largefiles=nothing
-* annex.largefiles=((largerthan=1024kb)or((mimeencoding=binary)and(largerthan=0)))
+* annex.largefiles=(((include=*.csv)and(largerthan=0))or((mimeencoding=binary)and(largerthan=0)))
