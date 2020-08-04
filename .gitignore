@@ -1,3 +1,4 @@
 # vim generated files
-*~
-*.sw?
+**~
+**.sw?
+**.ipynb_checkpoints
